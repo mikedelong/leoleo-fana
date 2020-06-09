@@ -2,6 +2,7 @@ from logging import INFO
 from logging import basicConfig
 from logging import getLogger
 from time import time
+
 from pandas import read_csv
 
 if __name__ == '__main__':
