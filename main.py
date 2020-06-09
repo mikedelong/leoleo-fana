@@ -15,4 +15,7 @@ if __name__ == '__main__':
                  'fatal-police-shootings-data.csv'
     input_df = read_csv(input_file)
     logger.info(input_df.shape)
+    logger.info(list(input_df))
+    logger.info('gender: {}'.format(input_df['gender'].value_counts()))
+    logger.info('race: {}'.format(input_df['race'].value_counts()))
     logger.info('total time: {:5.2f}s'.format(time() - time_start))
