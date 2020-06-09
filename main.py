@@ -13,9 +13,13 @@ if __name__ == '__main__':
     # https://github.com/washingtonpost/data-police-shootings
     input_file = 'https://raw.githubusercontent.com/washingtonpost/data-police-shootings/master/' \
                  'fatal-police-shootings-data.csv'
-    input_df = read_csv(input_file)
+    input_df = read_csv(input_file, parse_dates=['date'], )
     logger.info(input_df.shape)
     logger.info(list(input_df))
     logger.info('gender: {}'.format(input_df['gender'].value_counts()))
     logger.info('race: {}'.format(input_df['race'].value_counts()))
+    # add year column
+    input_df['year'] = input_df['date'].dt.year
+    logger.info(input_df['year'].value_counts())
+
     logger.info('total time: {:5.2f}s'.format(time() - time_start))
