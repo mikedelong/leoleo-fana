@@ -4,6 +4,7 @@ from logging import getLogger
 from time import time
 
 from pandas import read_csv
+from matplotlib.pyplot import show
 
 if __name__ == '__main__':
     time_start = time()
@@ -22,5 +23,7 @@ if __name__ == '__main__':
     # add year column
     input_df['year'] = input_df['date'].dt.year
     logger.info(input_df['year'].value_counts())
+    input_df['year'].value_counts().sort_index().plot()
+    show()
 
     logger.info('total time: {:5.2f}s'.format(time() - time_start))
