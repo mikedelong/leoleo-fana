@@ -5,7 +5,9 @@ from time import time
 
 from matplotlib.pyplot import scatter
 from matplotlib.pyplot import show
+from matplotlib.pyplot import subplots
 from pandas import read_csv
+from datetime import datetime
 
 if __name__ == '__main__':
     time_start = time()
@@ -26,7 +28,18 @@ if __name__ == '__main__':
 
     series = input_df['year'].value_counts().sort_index()
     logger.info(series)
-    scatter(series.index, series)
+    # scatter(series.index, series)
+    figure, axes = subplots()
+    # plot the annualized total for the current year
+    current_date = datetime.today()
+    current_year = current_date.year
+    past = series[series.index < current_year]
+    current = series[current_year]
+    scatter(past.index, past)
+    current_annualized = current * 365 // current_date.timetuple().tm_yday
+    logger.info('year: {} actual: {} annualized: {} day: {}'.format(current_year, current, current_annualized,
+                                                                    current_date.timetuple().tm_yday, ))
+    scatter(current_year, current_annualized)
     show()
 
     logger.info('total time: {:5.2f}s'.format(time() - time_start))
