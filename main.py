@@ -22,7 +22,7 @@ if __name__ == '__main__':
     logger.info('race: {}'.format(input_df['race'].value_counts()))
     # add year column
     input_df['year'] = input_df['date'].dt.year
-    logger.info(input_df['year'].value_counts())
+    logger.info(input_df['year'].value_counts().sort_index())
     input_df['year'].value_counts().sort_index().plot()
     show()
 
