@@ -31,10 +31,11 @@ if __name__ == '__main__':
     figure, axes = subplots()
     # plot the annualized total for the current year
     current_date = datetime.today()
-    current_year = current_date.year
+    current_year = input_df['year'].max()
     past = series[series.index < current_year]
     current = series[current_year]
     scatter(past.index, past)
+    # this is a pretty crude approximation to the annualized total
     current_annualized = current * 365 // current_date.timetuple().tm_yday
     logger.info('year: {} actual: {} annualized: {} day: {}'.format(current_year, current, current_annualized,
                                                                     current_date.timetuple().tm_yday, ))
