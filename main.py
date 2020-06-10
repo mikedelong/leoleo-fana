@@ -28,7 +28,6 @@ if __name__ == '__main__':
 
     series = input_df['year'].value_counts().sort_index()
     logger.info(series)
-    # scatter(series.index, series)
     figure, axes = subplots()
     # plot the annualized total for the current year
     current_date = datetime.today()
