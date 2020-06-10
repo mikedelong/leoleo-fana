@@ -3,9 +3,8 @@ from logging import basicConfig
 from logging import getLogger
 from time import time
 
-from matplotlib.pyplot import show
 from matplotlib.pyplot import scatter
-
+from matplotlib.pyplot import show
 from pandas import read_csv
 
 if __name__ == '__main__':
