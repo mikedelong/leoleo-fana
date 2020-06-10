@@ -1,3 +1,4 @@
+from datetime import datetime
 from logging import INFO
 from logging import basicConfig
 from logging import getLogger
@@ -7,7 +8,6 @@ from matplotlib.pyplot import scatter
 from matplotlib.pyplot import show
 from matplotlib.pyplot import subplots
 from pandas import read_csv
-from datetime import datetime
 
 if __name__ == '__main__':
     time_start = time()
