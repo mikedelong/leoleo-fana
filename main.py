@@ -4,6 +4,8 @@ from logging import getLogger
 from time import time
 
 from matplotlib.pyplot import show
+from matplotlib.pyplot import scatter
+
 from pandas import read_csv
 
 if __name__ == '__main__':
@@ -22,8 +24,10 @@ if __name__ == '__main__':
     logger.info('race: {}'.format(input_df['race'].value_counts()))
     # add year column
     input_df['year'] = input_df['date'].dt.year
-    logger.info(input_df['year'].value_counts().sort_index())
-    input_df['year'].value_counts().sort_index().plot()
+
+    series = input_df['year'].value_counts().sort_index()
+    logger.info(series)
+    scatter(series.index, series)
     show()
 
     logger.info('total time: {:5.2f}s'.format(time() - time_start))
