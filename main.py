@@ -24,9 +24,9 @@ if __name__ == '__main__':
     logger.info(list(input_df))
     logger.info('gender: {}'.format(input_df['gender'].value_counts()))
     logger.info('race: {}'.format(input_df['race'].value_counts()))
+    logger.info('mental illness: {}'.format(input_df['signs_of_mental_illness'].value_counts()))
     # add year column
     input_df['year'] = input_df['date'].dt.year
-
     series = input_df['year'].value_counts().sort_index()
     logger.info(series)
     figure, axes = subplots()
@@ -46,6 +46,6 @@ if __name__ == '__main__':
     if do_show:
         show()
     else:
-        savefig('./annual_total.png',)
+        savefig('./annual_total.png', )
 
     logger.info('total time: {:5.2f}s'.format(time() - time_start))
