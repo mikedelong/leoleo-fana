@@ -22,11 +22,11 @@ if __name__ == '__main__':
     input_file = 'https://raw.githubusercontent.com/washingtonpost/data-police-shootings/master/' \
                  'fatal-police-shootings-data.csv'
     input_df = read_csv(input_file, parse_dates=['date'], )
-    logger.info(input_df.shape)
-    logger.info(list(input_df))
-    logger.info('gender: {}'.format(input_df['gender'].value_counts()))
-    logger.info('race: {}'.format(input_df['race'].value_counts()))
-    logger.info('mental illness: {}'.format(input_df['signs_of_mental_illness'].value_counts()))
+    logger.info('data shape: {}'.format(input_df.shape, ), )
+    logger.info('column names: {} '.format(list(input_df), ), )
+    logger.info('gender: {}'.format(input_df['gender'].value_counts(), ), )
+    logger.info('race: {}'.format(input_df['race'].value_counts(), ), )
+    logger.info('mental illness: {}'.format(input_df['signs_of_mental_illness'].value_counts(), ), )
     # add year column
     input_df['year'] = input_df['date'].dt.year
     series = input_df['year'].value_counts().sort_index()
