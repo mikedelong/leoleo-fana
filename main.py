@@ -30,12 +30,12 @@ if __name__ == '__main__':
     logger.info('data shape: {}'.format(input_df.shape, ), )
     logger.info('column names: {} '.format(list(input_df), ), )
     logger.info('gender: {}'.format(make_tuple_list(input_df['gender'].value_counts(), ), ), )
-    logger.info('race: {}'.format(input_df['race'].value_counts(), ), )
-    logger.info('mental illness: {}'.format(input_df['signs_of_mental_illness'].value_counts(), ), )
+    logger.info('race: {}'.format(make_tuple_list(input_df['race'].value_counts(), ), ), )
+    logger.info('mental illness: {}'.format(make_tuple_list(input_df['signs_of_mental_illness'].value_counts(), ), ), )
     # add year column
     input_df['year'] = input_df['date'].dt.year
     series = input_df['year'].value_counts().sort_index()
-    logger.info(series)
+    logger.info(make_tuple_list(series, ), )
     figure, axes = subplots()
     # plot the annualized total for the current year
     current_date = datetime.today()
