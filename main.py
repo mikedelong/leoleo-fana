@@ -13,7 +13,7 @@ from pandas import read_csv
 
 
 def make_tuple_list(arg):
-    return list(zip(arg, arg.index))
+    return list(zip(arg.index, arg, ))
 
 
 if __name__ == '__main__':
