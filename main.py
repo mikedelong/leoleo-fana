@@ -7,6 +7,7 @@ from time import time
 from matplotlib.pyplot import savefig
 from matplotlib.pyplot import scatter
 from matplotlib.pyplot import show
+from matplotlib.pyplot import style
 from matplotlib.pyplot import subplots
 from pandas import read_csv
 
@@ -15,6 +16,7 @@ if __name__ == '__main__':
     logger = getLogger(__name__)
     basicConfig(format='%(asctime)s : %(name)s : %(levelname)s : %(message)s', level=INFO, )
     logger.info('started.', )
+    style.use('fivethirtyeight', )
 
     # https://github.com/washingtonpost/data-police-shootings
     input_file = 'https://raw.githubusercontent.com/washingtonpost/data-police-shootings/master/' \
