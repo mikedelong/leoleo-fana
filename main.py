@@ -11,6 +11,11 @@ from matplotlib.pyplot import style
 from matplotlib.pyplot import subplots
 from pandas import read_csv
 
+
+def make_tuple_list(arg):
+    return list(zip(arg, arg.index))
+
+
 if __name__ == '__main__':
     time_start = time()
     logger = getLogger(__name__)
@@ -24,7 +29,7 @@ if __name__ == '__main__':
     input_df = read_csv(input_file, parse_dates=['date'], )
     logger.info('data shape: {}'.format(input_df.shape, ), )
     logger.info('column names: {} '.format(list(input_df), ), )
-    logger.info('gender: {}'.format(input_df['gender'].value_counts(), ), )
+    logger.info('gender: {}'.format(make_tuple_list(input_df['gender'].value_counts(), ), ), )
     logger.info('race: {}'.format(input_df['race'].value_counts(), ), )
     logger.info('mental illness: {}'.format(input_df['signs_of_mental_illness'].value_counts(), ), )
     # add year column
