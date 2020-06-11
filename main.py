@@ -29,9 +29,8 @@ if __name__ == '__main__':
     input_df = read_csv(input_file, parse_dates=['date'], )
     logger.info('data shape: {}'.format(input_df.shape, ), )
     logger.info('column names: {} '.format(list(input_df), ), )
-    logger.info('gender: {}'.format(make_tuple_list(input_df['gender'].value_counts(), ), ), )
-    logger.info('race: {}'.format(make_tuple_list(input_df['race'].value_counts(), ), ), )
-    logger.info('mental illness: {}'.format(make_tuple_list(input_df['signs_of_mental_illness'].value_counts(), ), ), )
+    for column in ['armed', 'gender', 'manner_of_death', 'race', 'signs_of_mental_illness', 'state', ]:
+        logger.info('{}: {}'.format(column.replace('_', ' '), make_tuple_list(input_df[column].value_counts(), ), ), )
     # add year column
     input_df['year'] = input_df['date'].dt.year
     series = input_df['year'].value_counts().sort_index()
