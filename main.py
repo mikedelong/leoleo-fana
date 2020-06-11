@@ -4,6 +4,7 @@ from logging import basicConfig
 from logging import getLogger
 from time import time
 
+from matplotlib.pyplot import savefig
 from matplotlib.pyplot import scatter
 from matplotlib.pyplot import show
 from matplotlib.pyplot import subplots
@@ -36,10 +37,15 @@ if __name__ == '__main__':
     current = series[current_year]
     scatter(past.index, past)
     # this is a pretty crude approximation to the annualized total
+    # todo think about looking at seasonality
     current_annualized = current * 365 // current_date.timetuple().tm_yday
     logger.info('year: {} actual: {} annualized: {} day: {}'.format(current_year, current, current_annualized,
                                                                     current_date.timetuple().tm_yday, ))
     scatter(current_year, current_annualized)
-    show()
+    do_show = False
+    if do_show:
+        show()
+    else:
+        savefig('./annual_total.png',)
 
     logger.info('total time: {:5.2f}s'.format(time() - time_start))
