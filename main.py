@@ -58,5 +58,8 @@ if __name__ == '__main__':
         savefig('./annual_total.png', )
 
     counts = countplot(data=input_df[['race', 'gender', 'year']], x='race', hue='year')
-    show()
+    if do_show:
+        show()
+    else:
+        savefig('/race_year.png', )
     logger.info('total time: {:5.2f}s'.format(time() - time_start))
