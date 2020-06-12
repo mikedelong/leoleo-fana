@@ -59,5 +59,5 @@ if __name__ == '__main__':
     if do_show:
         show()
     else:
-        savefig('/race_year.png', )
+        savefig('/race_year_count.png', )
     logger.info('total time: {:5.2f}s'.format(time() - time_start))
