@@ -10,6 +10,9 @@ from matplotlib.pyplot import show
 from matplotlib.pyplot import style
 from matplotlib.pyplot import subplots
 from pandas import read_csv
+from pandas import value_counts
+
+from seaborn import countplot
 
 
 def make_tuple_list(arg):
@@ -54,4 +57,6 @@ if __name__ == '__main__':
     else:
         savefig('./annual_total.png', )
 
+    counts = countplot(data=input_df[['race', 'gender', 'year']], x='race', hue='year')
+    show()
     logger.info('total time: {:5.2f}s'.format(time() - time_start))
