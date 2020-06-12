@@ -10,8 +10,6 @@ from matplotlib.pyplot import show
 from matplotlib.pyplot import style
 from matplotlib.pyplot import subplots
 from pandas import read_csv
-from pandas import value_counts
-
 from seaborn import countplot
 
 
