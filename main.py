@@ -11,6 +11,7 @@ from matplotlib.pyplot import style
 from matplotlib.pyplot import subplots
 from pandas import read_csv
 from seaborn import countplot
+from seaborn import catplot
 
 
 def make_tuple_list(arg):
@@ -55,9 +56,15 @@ if __name__ == '__main__':
     else:
         savefig('./annual_total.png', )
 
-    counts = countplot(data=input_df[['gender', 'race', 'year', ]], hue='year', x='race', )
+    count = countplot(data=input_df[['gender', 'race', 'year', ]], hue='year', x='race', )
     if do_show:
         show()
     else:
-        savefig('/race_year_count.png', )
+        savefig('./race_year_count.png', )
+
+    cat = catplot(col='gender', data=input_df[['gender', 'race', 'year', ]], hue='year', kind='count', x='race', )
+    if do_show:
+        show()
+    else:
+        savefig('./race_year_cat.png', )
     logger.info('total time: {:5.2f}s'.format(time() - time_start))
