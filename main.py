@@ -10,8 +10,8 @@ from matplotlib.pyplot import show
 from matplotlib.pyplot import style
 from matplotlib.pyplot import subplots
 from pandas import read_csv
-from seaborn import countplot
 from seaborn import catplot
+from seaborn import countplot
 
 
 def make_tuple_list(arg):
