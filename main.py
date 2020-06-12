@@ -57,7 +57,7 @@ if __name__ == '__main__':
     else:
         savefig('./annual_total.png', )
 
-    counts = countplot(data=input_df[['race', 'gender', 'year']], x='race', hue='year')
+    counts = countplot(data=input_df[['gender', 'race', 'year', ]], hue='year', x='race', )
     if do_show:
         show()
     else:
