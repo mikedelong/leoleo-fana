@@ -67,4 +67,7 @@ if __name__ == '__main__':
         show()
     else:
         savefig('./race_year_cat.png', )
+
+    # todo build a summary table with annualized data for the current year
+
     logger.info('total time: {:5.2f}s'.format(time() - time_start))
