@@ -12,7 +12,8 @@ from matplotlib.pyplot import subplots
 from pandas import read_csv
 from seaborn import catplot
 from seaborn import countplot
-
+from pandas import Series
+from pandas import DataFrame
 
 def make_tuple_list(arg):
     return list(zip(arg.index, arg, ))
@@ -69,5 +70,9 @@ if __name__ == '__main__':
         savefig('./race_year_cat.png', )
 
     # todo build a summary table with annualized data for the current year
+    counts0_df = input_df[['gender', 'race', 'year']].apply(Series.value_counts)
+    counts1_df = input_df[['gender', 'race', 'year']].groupby(['gender', 'race', ]).nunique(dropna=False, )
+    counts2_df = DataFrame.from_records(input_df[['gender', 'race', 'year']].values.tolist()).stack().value_counts()
+
 
     logger.info('total time: {:5.2f}s'.format(time() - time_start))
