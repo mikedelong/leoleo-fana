@@ -70,9 +70,10 @@ if __name__ == '__main__':
     else:
         savefig('./race_year_cat.png', )
 
-    # todo build a summary table with annualized data for the current year
+    # todo build a summary table
     counts0_df = input_df[['gender', 'race', 'year', ]].apply(Series.value_counts)
     counts1_df = input_df[['gender', 'race', 'year', ]].groupby(['gender', 'race', ]).nunique(dropna=False, )
     counts2_df = DataFrame.from_records(input_df[['gender', 'race', 'year', ]].values.tolist()).stack().value_counts()
+    # todo use annualized data for the current year
 
     logger.info('total time: {:5.2f}s'.format(time() - time_start))
