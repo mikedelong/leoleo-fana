@@ -9,11 +9,11 @@ from matplotlib.pyplot import scatter
 from matplotlib.pyplot import show
 from matplotlib.pyplot import style
 from matplotlib.pyplot import subplots
+from pandas import DataFrame
+from pandas import Series
 from pandas import read_csv
 from seaborn import catplot
 from seaborn import countplot
-from pandas import Series
-from pandas import DataFrame
 
 
 def make_tuple_list(arg):
