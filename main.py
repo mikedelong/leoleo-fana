@@ -14,6 +14,7 @@ from pandas import Series
 from pandas import read_csv
 from seaborn import catplot
 from seaborn import countplot
+from collections import Counter
 
 
 def make_tuple_list(arg):
@@ -74,6 +75,9 @@ if __name__ == '__main__':
     counts0_df = input_df[['gender', 'race', 'year', ]].apply(Series.value_counts)
     counts1_df = input_df[['gender', 'race', 'year', ]].groupby(['gender', 'race', ]).nunique(dropna=False, )
     counts2_df = DataFrame.from_records(input_df[['gender', 'race', 'year', ]].values.tolist()).stack().value_counts()
+    t0 = Counter([tuple(item) for item in input_df[['gender', 'race', 'year', ]].to_numpy()])
+    t1 = [(key[0], key[1], key[2], value) for key, value in dict(t0).items()]
+    counts3_df = DataFrame(t1, columns=['gender', 'race', 'year', 'count', ])
     # todo use annualized data for the current year
 
     logger.info('total time: {:5.2f}s'.format(time() - time_start))
