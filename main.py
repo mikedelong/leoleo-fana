@@ -74,7 +74,7 @@ if __name__ == '__main__':
     # todo build a summary table
     t0 = Counter([tuple(item) for item in input_df[['gender', 'race', 'year', ]].to_numpy()])
     t1 = [(key[0], key[1], key[2], value) for key, value in dict(t0).items()]
-    counts3_df = DataFrame(t1, columns=['gender', 'race', 'year', 'count', ])
+    count_df = DataFrame(t1, columns=['gender', 'race', 'year', 'count', ])
     # todo use annualized data for the current year
 
     logger.info('total time: {:5.2f}s'.format(time() - time_start))
