@@ -74,6 +74,7 @@ if __name__ == '__main__':
     count_df = DataFrame([(key[0], key[1], key[2], value) for key, value in dict(
         Counter([tuple(item) for item in input_df[['gender', 'race', 'year', ]].to_numpy()])).items()],
                          columns=['gender', 'race', 'year', 'count', ])
+    # todo graph this data
     # todo use annualized data for the current year
 
     logger.info('total time: {:5.2f}s'.format(time() - time_start))
