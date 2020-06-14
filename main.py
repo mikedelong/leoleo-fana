@@ -72,8 +72,8 @@ if __name__ == '__main__':
         savefig('./race_year_cat.png', )
 
     # todo build a summary table
-    t0 = Counter([tuple(item) for item in input_df[['gender', 'race', 'year', ]].to_numpy()])
-    count_df = DataFrame([(key[0], key[1], key[2], value) for key, value in dict(t0).items()],
+    count_df = DataFrame([(key[0], key[1], key[2], value) for key, value in dict(
+        Counter([tuple(item) for item in input_df[['gender', 'race', 'year', ]].to_numpy()])).items()],
                          columns=['gender', 'race', 'year', 'count', ])
     # todo use annualized data for the current year
 
