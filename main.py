@@ -1,3 +1,4 @@
+from collections import Counter
 from datetime import datetime
 from logging import INFO
 from logging import basicConfig
@@ -10,11 +11,9 @@ from matplotlib.pyplot import show
 from matplotlib.pyplot import style
 from matplotlib.pyplot import subplots
 from pandas import DataFrame
-from pandas import Series
 from pandas import read_csv
 from seaborn import catplot
 from seaborn import countplot
-from collections import Counter
 
 
 def make_tuple_list(arg):
