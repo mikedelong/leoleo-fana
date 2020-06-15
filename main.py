@@ -81,7 +81,15 @@ if __name__ == '__main__':
     else:
         savefig('./race_year_countplot.png', )
     # todo use annualized data for the current year
-    count_df['annualized'] = count_df.apply(lambda x: x['count'] if x['year'] < count_df['year'].max() else
-                                            x['count'] * 365 // current_date.timetuple().tm_yday, axis=1)
+    current_year = count_df['year'].max()
+    day_of_year = current_date.timetuple().tm_yday
+    count_df['annualized'] = count_df.apply(
+        lambda x: x['count'] if x['year'] < current_year else x['count'] * 365 // day_of_year, axis=1, )
+    annualized_plot = countplot(data=count_df.drop(['count'], axis=1, ), hue='year', x='race', )
+    annualized_plot.legend_.remove()
+    if do_show:
+        show()
+    else:
+        savefig('./race_year_annualized_countplot.png', )
 
     logger.info('total time: {:5.2f}s'.format(time() - time_start))
