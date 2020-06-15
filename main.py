@@ -85,7 +85,8 @@ if __name__ == '__main__':
     day_of_year = current_date.timetuple().tm_yday
     count_df['annualized'] = count_df.apply(
         lambda x: x['count'] if x['year'] < current_year else x['count'] * 365 // day_of_year, axis=1, )
-    annualized_plot = countplot(data=count_df.drop(['count'], axis=1, ), hue='year', x='race', )
+    annualized_df = count_df.drop(['count'], axis=1, )
+    annualized_plot = countplot(data=annualized_df, hue='year', x='race', )
     annualized_plot.legend_.remove()
     if do_show:
         show()
