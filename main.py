@@ -68,7 +68,7 @@ if __name__ == '__main__':
     if do_show:
         show()
     else:
-        savefig('./race_year_cat.png', )
+        savefig('./race_year_catplot.png', )
 
     count_df = DataFrame([(key[0], key[1], key[2], value) for key, value in dict(
         Counter([tuple(item) for item in input_df[['gender', 'race', 'year', ]].to_numpy()])).items()],
