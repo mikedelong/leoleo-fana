@@ -80,12 +80,14 @@ if __name__ == '__main__':
         Counter([tuple(item) for item in input_df[['gender', 'race', 'year', ]].to_numpy()])).items()],
                          columns=['gender', 'race', 'year', 'count', ])
 
+    countplot_figure = figure()
     count_plot = countplot(data=count_df, hue='year', x='race', )
     count_plot.legend_.remove()
     if do_show:
         show()
     else:
         savefig('./race_year_countplot.png', )
+    del countplot_figure
     # todo use annualized data for the current year
     current_year = count_df['year'].max()
     day_of_year = current_date.timetuple().tm_yday
