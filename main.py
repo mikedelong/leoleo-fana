@@ -68,11 +68,13 @@ if __name__ == '__main__':
         savefig('./race_year_count.png', )
     del count_figure
 
+    cat_figure = figure()
     cat = catplot(col='gender', data=input_df[['gender', 'race', 'year', ]], hue='year', kind='count', x='race', )
     if do_show:
         show()
     else:
         savefig('./race_year_catplot.png', )
+    del cat_figure
 
     count_df = DataFrame([(key[0], key[1], key[2], value) for key, value in dict(
         Counter([tuple(item) for item in input_df[['gender', 'race', 'year', ]].to_numpy()])).items()],
