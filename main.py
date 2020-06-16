@@ -40,7 +40,6 @@ if __name__ == '__main__':
     input_df['year'] = input_df['date'].dt.year
     series = input_df['year'].value_counts().sort_index()
     logger.info(make_tuple_list(series, ), )
-    figure, axes = subplots()
     # plot the annualized total for the current year
     current_date = datetime.today()
     current_year = input_df['year'].max()
@@ -61,11 +60,13 @@ if __name__ == '__main__':
         savefig('./annual_total.png', )
     del scatter_figure
 
+    count_figure = figure()
     count = countplot(data=input_df[['gender', 'race', 'year', ]], hue='year', x='race', )
     if do_show:
         show()
     else:
         savefig('./race_year_count.png', )
+    del count_figure
 
     cat = catplot(col='gender', data=input_df[['gender', 'race', 'year', ]], hue='year', kind='count', x='race', )
     if do_show:
