@@ -94,11 +94,13 @@ if __name__ == '__main__':
     count_df['annualized'] = count_df.apply(
         lambda x: x['count'] if x['year'] < current_year else x['count'] * 365 // day_of_year, axis=1, )
     annualized_df = count_df.drop(['count'], axis=1, )
+    annualized_figure = figure()
     annualized_plot = countplot(data=annualized_df, hue='year', x='race', )
     annualized_plot.legend_.remove()
     if do_show:
         show()
     else:
         savefig('./race_year_annualized_countplot.png', )
+    del annualized_figure
 
     logger.info('total time: {:5.2f}s'.format(time() - time_start))
