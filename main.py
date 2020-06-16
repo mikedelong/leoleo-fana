@@ -14,6 +14,7 @@ from pandas import DataFrame
 from pandas import read_csv
 from seaborn import catplot
 from seaborn import countplot
+from matplotlib.pyplot import figure
 
 
 def make_tuple_list(arg):
@@ -51,12 +52,14 @@ if __name__ == '__main__':
     current_annualized = current * 365 // current_date.timetuple().tm_yday
     logger.info('year: {} actual: {} annualized: {} day: {}'.format(current_year, current, current_annualized,
                                                                     current_date.timetuple().tm_yday, ))
+    scatter_figure = figure()
     scatter(current_year, current_annualized)
     do_show = False
     if do_show:
         show()
     else:
         savefig('./annual_total.png', )
+    del scatter_figure
 
     count = countplot(data=input_df[['gender', 'race', 'year', ]], hue='year', x='race', )
     if do_show:
