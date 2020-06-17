@@ -106,5 +106,11 @@ if __name__ == '__main__':
     # todo add monthly totals for full years
     input_df['month'] = input_df['date'].dt.month
     month_counts = input_df[input_df['year'] < current_year]['month'].value_counts().sort_index()
-
+    month_figure = figure()
+    month_plot = month_counts.plot(kind='barh', )
+    if do_show:
+        show()
+    else:
+        savefig('./month_barh.png', )
+    del month_figure
     logger.info('total time: {:5.2f}s'.format(time() - time_start))
