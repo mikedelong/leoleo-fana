@@ -104,6 +104,6 @@ if __name__ == '__main__':
     del annualized_figure
 
     # todo add monthly totals for full years
-
+    input_df['month'] = input_df['date'].dt.month
 
     logger.info('total time: {:5.2f}s'.format(time() - time_start))
