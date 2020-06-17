@@ -103,4 +103,7 @@ if __name__ == '__main__':
         savefig('./race_year_annualized_countplot.png', )
     del annualized_figure
 
+    # todo add monthly totals for full years
+
+
     logger.info('total time: {:5.2f}s'.format(time() - time_start))
