@@ -103,7 +103,6 @@ if __name__ == '__main__':
         savefig('./race_year_annualized_countplot.png', )
     del annualized_figure
 
-    # todo add monthly totals for full years
     input_df['month'] = input_df['date'].dt.month
     month_counts = input_df[input_df['year'] < current_year]['month'].value_counts().sort_index()
     month_figure = figure()
