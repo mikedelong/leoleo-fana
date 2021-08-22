@@ -3,8 +3,8 @@ from datetime import datetime
 from logging import INFO
 from logging import basicConfig
 from logging import getLogger
-from time import time
 
+from arrow import now
 from matplotlib.pyplot import figure
 from matplotlib.pyplot import savefig
 from matplotlib.pyplot import scatter
@@ -22,7 +22,7 @@ def make_tuple_list(arg):
 
 
 if __name__ == '__main__':
-    time_start = time()
+    time_start = now()
     logger = getLogger(__name__)
     basicConfig(format='%(asctime)s : %(name)s : %(levelname)s : %(message)s', level=INFO, )
     logger.info('started.', )
@@ -112,4 +112,4 @@ if __name__ == '__main__':
     else:
         savefig('./month_barh.png', )
     del month_figure
-    logger.info('total time: {:5.2f}s'.format(time() - time_start))
+    logger.info('total time: {:5.2f}s'.format((now() - time_start).total_seconds()))
