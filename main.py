@@ -5,6 +5,7 @@ from logging import basicConfig
 from logging import getLogger
 from time import time
 
+from matplotlib.pyplot import figure
 from matplotlib.pyplot import savefig
 from matplotlib.pyplot import scatter
 from matplotlib.pyplot import show
@@ -14,7 +15,6 @@ from pandas import DataFrame
 from pandas import read_csv
 from seaborn import catplot
 from seaborn import countplot
-from matplotlib.pyplot import figure
 
 
 def make_tuple_list(arg):
