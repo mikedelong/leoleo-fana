@@ -20,6 +20,8 @@ def make_tuple_list(arg):
     return list(zip(arg.index, arg, ))
 
 
+SHOW = False
+
 if __name__ == '__main__':
     time_start = now()
     logger = getLogger(__name__)
@@ -52,8 +54,7 @@ if __name__ == '__main__':
                                                                     current_date.timetuple().tm_yday, ))
     scatter_figure = figure()
     scatter(current_year, current_annualized)
-    do_show = False
-    if do_show:
+    if SHOW:
         show()
     else:
         savefig('./annual_total.png', )
@@ -61,7 +62,7 @@ if __name__ == '__main__':
 
     count_figure = figure()
     count = countplot(data=input_df[['gender', 'race', 'year', ]], hue='year', x='race', )
-    if do_show:
+    if SHOW:
         show()
     else:
         savefig('./race_year_count.png', )
@@ -69,7 +70,7 @@ if __name__ == '__main__':
 
     cat_figure = figure()
     cat = catplot(col='gender', data=input_df[['gender', 'race', 'year', ]], hue='year', kind='count', x='race', )
-    if do_show:
+    if SHOW:
         show()
     else:
         savefig('./race_year_catplot.png', )
@@ -82,7 +83,7 @@ if __name__ == '__main__':
     countplot_figure = figure()
     count_plot = countplot(data=count_df, hue='year', x='race', )
     count_plot.legend_.remove()
-    if do_show:
+    if SHOW:
         show()
     else:
         savefig('./race_year_countplot.png', )
@@ -96,7 +97,7 @@ if __name__ == '__main__':
     annualized_figure = figure()
     annualized_plot = countplot(data=annualized_df, hue='year', x='race', )
     annualized_plot.legend_.remove()
-    if do_show:
+    if SHOW:
         show()
     else:
         savefig('./race_year_annualized_countplot.png', )
@@ -106,7 +107,7 @@ if __name__ == '__main__':
     month_counts = input_df[input_df['year'] < current_year]['month'].value_counts().sort_index()
     month_figure = figure()
     month_plot = month_counts.plot(kind='barh', )
-    if do_show:
+    if SHOW:
         show()
     else:
         savefig('./month_barh.png', )
